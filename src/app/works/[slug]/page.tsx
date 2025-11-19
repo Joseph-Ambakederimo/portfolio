@@ -1,10 +1,8 @@
-import dynamic from 'next/dynamic';
+// "use client"
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/constants";
 // import { useGSAP } from "@gsap/react";
-
-// Lazy load heavy components
-const LazyImage = dynamic(() => import('next/image'), { loading: () => <div>Loading image...</div> });
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -18,8 +16,7 @@ export const metadata = {
 };
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  const awaitedParams = await Promise.resolve(params); // Ensure params is awaited
-  const { slug } = awaitedParams;
+  const { slug } = await params; // Await params before destructuring
 
   const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
@@ -36,7 +33,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
           <h2 className="text-xl font-semibold">Screenshots</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
             {project.screenshots && project.screenshots.map((src, idx) => (
-              <LazyImage
+              <Image
                 key={idx}
                 src={src}
                 alt={`Screenshot ${idx + 1}`}
@@ -71,6 +68,8 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             ))}
           </ul>
         </div>
+
+        
       </section>
     </main>
   );
