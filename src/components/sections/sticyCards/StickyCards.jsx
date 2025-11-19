@@ -3,6 +3,7 @@
 import "./stickyCards.css";
 
 import {  useRef } from "react";
+import Image from "next/image";
 
 import gsap from "gsap";
 import AnimatedHeaderSection from "@/components/AnimatedHeaderSection";
@@ -136,7 +137,13 @@ const StickyCards = () => {
                         <div className="sticky-card-content-wrapper">
                             <h4 className="sticky-card-header">{cardData.title}</h4>
                             <div className="sticky-card-img">
-                                <img src={cardData.image} alt="" />
+                                <Image 
+                                    src={cardData.imageSrc} 
+                                    alt={cardData.imageAlt || ""} 
+                                    width={800}
+                                    height={600}
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
 
                             <div className="sticky-card-copy">

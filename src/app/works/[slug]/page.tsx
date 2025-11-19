@@ -15,7 +15,7 @@ export const metadata = {
   description: "Detailed case study",
 };
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; // Await params before destructuring
 
   const project = projects.find((p) => p.slug === slug);
