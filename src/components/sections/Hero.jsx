@@ -1,7 +1,7 @@
 "use client"
 
-import AnimatedHeader from "@/components/AnimatedHeader";
-// import AnimatedHeaderSection from "../AnimatedHeaderSection";
+// import AnimatedHeader from "@/components/AnimatedHeader";
+import AnimatedHeaderSection from "../AnimatedHeaderSection";
 
 
 
@@ -12,19 +12,19 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative bg-white min-h-[80vh]">
-      {/* <AnimatedHeaderSection
+      <AnimatedHeaderSection
         subTitle={"full-stack dev"}
         title={"Joseph"}
         text={text}
         textColor={"text-black"}
-      /> */}
-      <AnimatedHeader
+      />
+      {/* <AnimatedHeader
         subTitle={"Full-Stack Developer"}
         // subTitle={"404 No Bugs Found"}
         title={"Joseph"}
         text={text}
         textColor={"text-black"}
-      />
+      /> */}
      
     </section>
   );
