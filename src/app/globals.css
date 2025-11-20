@@ -148,6 +148,10 @@
   }
 }
 
+html {
+  background: #000000;
+}
+
 body {
   background: #ffffff;
   color: black;
@@ -156,7 +160,22 @@ body {
   font-family: var(--font-amiamie);
   color: rgb(var(--foreground-rgb));
   font-family: "Manrope", sans-serif;
+}
 
+/* Ensure contact section extends to cover bottom white bar */
+#contact {
+  position: relative;
+}
+
+#contact::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: #000000;
+  z-index: 1;
 }
 
 
